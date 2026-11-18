@@ -1,5 +1,11 @@
 # Seminário Prático de Testes de Software — Checkout B2B
 
+- Aline Avila Brunetti
+- Alisson Eraldo da Silva
+- Gabriel Beledeli Hul
+- Nicolas Miguel Uczak
+- Vinicius Gabriel Buskievicz
+
 Este repositório contém uma aplicação web de **Simulação e Gerenciamento de Pedidos B2B** desenvolvida especificamente para a demonstração prática das três camadas da **Pirâmide de Testes de Software**: **Testes Unitários (Jest)**, **Testes de Integração entre Módulos (Jest)** e **Testes End-to-End (Cypress)**.
 
 ---
