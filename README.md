@@ -127,7 +127,7 @@ npm run dev
 
 No **Terminal 2**, execute o Cypress:
 ```bash
-# Abrir a interface visual interativa do Cypress (Recomendado para a apresentação)
+# Abrir a interface visual interativa do Cypress
 npm run cy:open
 
 # Ou executar todos os testes E2E via terminal (modo headless)

@@ -14,16 +14,12 @@ export function processNewOrder(input: CreateOrderInput) {
   if (typeof customerName !== 'string' || customerName.trim().length < 3) {
     throw new Error('Nome do cliente é obrigatório (mín. 3 letras)');
   }
-  if (typeof productId !== 'string') {
+  const product = db.getProductById(productId);
+  if (typeof productId !== 'string' || !product) {
     throw new Error('Produto não encontrado');
   }
   if (coupon !== undefined && typeof coupon !== 'string') {
     throw new Error('Cupom inválido');
-  }
-
-  const product = db.getProductById(productId);
-  if (!product) {
-    throw new Error('Produto não encontrado');
   }
 
   const parsedQuantity = Number(quantity);
