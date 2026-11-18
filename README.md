@@ -129,13 +129,3 @@ npm run cy:run
 ```
 
 ---
-
-## 5. Roteiro de Apresentação para a Equipe (5 Integrantes)
-
-| Integrante | Responsabilidade na Apresentação | Arquivos Principais | Comando de Demonstração |
-| :--- | :--- | :--- | :--- |
-| **1. Arquitetura e Contexto** | Apresenta o propósito do sistema, demonstra um pedido rápido no navegador e explica as diferenças entre Testes Unitários, de Integração e E2E na pirâmide de testes. | `public/index.html`<br>`src/app.ts` | `npm run dev` |
-| **2. Testes Unitários** | Explica o conceito de função pura e isolamento, demonstrando as regras matemáticas de desconto, frete e exceções testadas com Jest. | `src/pricing.ts`<br>`tests/unit/pricing.test.ts` | `npm run test:unit` |
-| **3. Testes de Integração** | Demonstra a comunicação real entre `orderService.ts`, `pricing.ts` e `db.ts`, destacando o reset de estado (`beforeEach`) e a verificação de efeito colateral no estoque. | `src/orderService.ts`<br>`src/db.ts`<br>`tests/integration/orderService.test.ts` | `npm run test:integration` |
-| **4. Testes E2E (Base)** | Apresenta a estrutura do Cypress, o uso de seletores `data-cy`, o padrão *Page Object* e *Fixtures*, executando o caminho feliz e o erro de estoque na interface. | `cypress/fixtures/orderData.json`<br>`cypress/support/pages/OrderPage.ts`<br>`cypress/e2e/checkout.cy.ts` (Testes 1 e 2) | `npm run cy:open` |
-| **5. Testes E2E (Avançado)** | Explica e demonstra a interceptação de requisições HTTP com `cy.intercept`, validando o contrato do payload JSON e simulando um Erro 500 para provar a resiliência da UI. | `cypress/e2e/checkout.cy.ts` (Testes 3 e 4) | `npm run cy:open` |
