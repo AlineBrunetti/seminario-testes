@@ -1,0 +1,13 @@
+{
+  "validOrder": {
+    "customer": "Aline Sistemas LTDA",
+    "product": "prod-1",
+    "quantity": "2",
+    "coupon": "PROMO15"
+  },
+  "outOfStockOrder": {
+    "customer": "Comércio Varejista Sul",
+    "product": "prod-2",
+    "quantity": "50"
+  }
+}
