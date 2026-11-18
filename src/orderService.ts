@@ -14,20 +14,24 @@ export function processNewOrder(input: CreateOrderInput) {
   if (typeof customerName !== 'string' || customerName.trim().length < 3) {
     throw new Error('Nome do cliente é obrigatório (mín. 3 letras)');
   }
-  const product = db.getProductById(productId);
-  if (typeof productId !== 'string' || !product) {
+
+  const product = typeof productId === 'string' ? db.getProductById(productId) : undefined;
+  if (!product) {
     throw new Error('Produto não encontrado');
-  }
-  if (coupon !== undefined && typeof coupon !== 'string') {
-    throw new Error('Cupom inválido');
   }
 
   const parsedQuantity = Number(quantity);
-  const calculation = calculateOrderTotal(product.price, parsedQuantity, coupon || undefined);
-
+  if (parsedQuantity <= 0 || !Number.isInteger(parsedQuantity)) {
+    throw new Error('Quantidade deve ser um número inteiro positivo');
+  }
   if (parsedQuantity > product.stock) {
     throw new Error(`Estoque insuficiente. Disponível: ${product.stock}`);
   }
+
+  if (coupon !== undefined && typeof coupon !== 'string') {
+    throw new Error('Cupom inválido');
+  }
+  const calculation = calculateOrderTotal(product.price, parsedQuantity, coupon || undefined);
 
   db.updateStock(product.id, parsedQuantity);
   const order = db.createOrder({
